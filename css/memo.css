@@ -1,0 +1,67 @@
+/* body {
+} */
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6600FF;
+}
+
+main {
+    height: 500px;
+}
+
+.textarea {
+    position: relative;
+    margin: 60px 30px;
+    padding: 60px 0px;
+    background-color: #CCCCFF;
+}
+
+.menu {
+    position: absolute;
+    left: 50px;
+}
+
+.weight {
+    position: absolute;
+    left: 300px;
+}
+
+.kg {
+    position: absolute;
+    left: 470px;
+}
+
+.rep {
+    position: absolute;
+    left: 550px;
+}
+
+.count {
+    position: absolute;
+    left: 720px;
+}
+
+.max {
+    position: absolute;
+    left: 900px;
+}
+
+.save {
+    position: relative;
+    margin: 60px 60px;
+    padding: 60px 30px;
+    background-color: #FFFF99;
+}
+
+#save {
+    position: absolute;
+    left: 250px;
+}
+
+#clear {
+    position: absolute;
+    right: 250px;
+}
