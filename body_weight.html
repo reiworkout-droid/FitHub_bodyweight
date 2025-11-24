@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/weight.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,16 +12,50 @@
     </header>
 
     <main>
-        <input type="text" id="date">
-        <textarea id="weight"></textarea>
+        <div id="form">
+            <!-- 日付部分 -->
+            <div id="today">
+                <p>日付</p>
+                <textarea id="date"></textarea>
+            </div>
+
+            <!-- 体重部分 -->
+            <div id="kg">
+                <p>体重（kg）</p>
+                <textarea id="weight"></textarea>
+            </div>
+        </div>
+
+        <div id="form2">
+            <div id="tall">
+                <p>身長（cm）</p>
+                <textarea id="height"></textarea>
+            </div>
+            <div id="bmi">
+                <p id="BMI">あなたのBMIは・・・</p>
+            </div>
+        </div>
+
+         <!-- 保存・削除ボタン -->
+        <ul id="send">
+            <li id="save">save</li>
+            <li id="clear">clear</li>
+        </ul>
+
+        <!-- <div id="history">
+            <p>履歴表示</p>
+        </div> -->
+
+        <!--　線グラフ -->
+        <canvas id="mychart"></canvas>
+
+        <canvas id="mybmi"></canvas>
+
     </main>
 
-    <ul>
-        <li>save</li>
-        <li>clear</li>
-    </ul>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="./js/weight.js"></script>
 </body>
 </html>

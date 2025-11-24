@@ -21,6 +21,7 @@
         localStorage.setItem("rep3",r3);
 
         alert("保存しました");
+        console.log(m)
     });
 
     $('#clear').on('click',function(){
