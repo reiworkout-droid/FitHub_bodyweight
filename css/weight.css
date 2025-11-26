@@ -27,7 +27,6 @@ main {
     justify-content: center;
     gap: 10%;
     align-items: center;
-    margin-top: 60px;
     /* background-color: aqua; */
 }
 
@@ -37,6 +36,11 @@ main {
     justify-content: center;
     gap: 10%;
     align-items: center;
+}
+
+#bmi {
+    text-align: center;
+    margin-top: 60px;
 }
 
 #send {
