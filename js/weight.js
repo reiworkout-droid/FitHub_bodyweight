@@ -91,7 +91,7 @@ $('#save').on('click',function(){
     const bodyWeight = { 
         date: dateSelect, //変数dateのデータを取得
         weight: $('#weight').val(), //id=weightのデータを表示   
-        height: $('#height').val(), //id=heightのデータを表示
+        height: $('#height').val() //id=heightのデータを表示
     };
     console.log(bodyWeight);
 
@@ -163,7 +163,7 @@ if(localStorage.getItem('memo')){
     $('#view2').val(parts[1]);//月
     $('#view3').val(parts[2]);//日
 
-    $('#weight').val(bodyWeight.weight);
+    // $('#weight').val(bodyWeight.weight);
     $('#height').val(bodyWeight.height);
     console.log(bodyWeight);
 
