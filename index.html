@@ -12,41 +12,51 @@
         <h1 id="title">FitHub</h1>
     </header>
     <main>
-        <div class="textarea">
-            <textarea class="menu" id="menu1"></textarea>
-            <textarea class="weight" id="weight1"></textarea>
-            <p class="kg">kg</p>
-            <textarea class="rep" id="rep1"></textarea>
-            <p class="count">回</p>
-            <p class="max">RM<span>0</span>kg</p>
-        </div>
+        <section id="form">
+            <div id="ymd">
+                <select name="date" id="year"></select>
+                <select name="date" id="month"></select>
+                <select name="date" id="day"></select>
+            </div>
 
-        <div class="textarea">
-            <textarea class="menu" id="menu2"></textarea>
-            <textarea class="weight" id="weight2"></textarea>
-            <p class="kg">kg</p>
-            <textarea class="rep" id="rep2"></textarea>
-            <p class="count">回</p>
-            <p class="max">RM<span>0</span>kg</p>
-        </div>
+            <div class="textarea">
+                <div class="SBD">
+                    <div class="sbd">
+                        <select name="menu" class="menu">
+                            <option value="" disabled selected>選択してください</option>
+                            <option value="sq">スクワット</option>
+                            <option value="bp">ベンチプレス</option>
+                            <option value="dl">デッドリフト</option>
+                        </select>
+                    </div>
+                </div>
 
-        <div class="textarea">
-            <textarea class="menu" id="menu3"></textarea>
-            <textarea class="weight" id="weight3"></textarea>
-            <p class="kg">kg</p>
-            <textarea class="rep" id="rep3"></textarea>
-            <p class="count">回</p>
-            <p class="max">RM<span>0</span>kg</p>
-        </div>
+                <div class="maintext">
+                    <div class="weight-wrap">
+                        <textarea class="weight"></textarea>
+                        <p class="kg">kg</p>
+                    </div>
+                    <div class="rep-wrap">
+                        <textarea class="rep"></textarea>
+                        <p class="count">回</p>
+                    </div>
+                    <p class="max">RM<span class="maxcal">0</span>kg</p>
+                </div>
 
-
+                <div class="setbutton">
+                    <button class="addset">＋</button>
+                </div>
+            </div>
+            <div class="formbutton">
+                <button class="addform">＋</button>
+            </div>
+        </section>
 
         <ul class="save">
             <li id="save">save</li>
             <li id="clear">clear</li>
         </ul>
     </main>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/memo.js"></script>
