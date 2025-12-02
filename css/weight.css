@@ -62,3 +62,15 @@ main {
 #mychart {
     margin-bottom: 60px;
 }
+
+#footer {
+}
+
+#footer_ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: #9999FF;
+    margin-top: 30px;
+    padding: 30px;
+}
