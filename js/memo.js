@@ -26,7 +26,10 @@ const set =
         <textarea class="rep"></textarea>
         <p class="count">回</p>
     </div>
-    <p class="max">RM<span class="maxcal">0</span>kg</p>
+    <div class="RM">
+        <p class="RM1">RM換算値</p>
+        <p class="max">RM<span class="maxcal">0</span>kg</p>
+    </div>
 </div>`;
 
 
@@ -59,7 +62,10 @@ const form =
             <textarea class="rep"></textarea>
             <p class="count">回</p>
         </div>
-        <p class="max">RM<span class="maxcal">0</span>kg</p>
+        <div class="RM">
+            <p class="RM1">RM換算値</p>
+            <p class="max">RM<span class="maxcal">0</span>kg</p>
+        </div>
     </div>
 
     <div class="setbutton">
@@ -79,8 +85,22 @@ $('#save').on('click',function(){
     const d = $('#day').val();
 
     const dateSelect = `${y}-${m}-${d}`;
-    const memories = [];
 
+    // 追加前の最大値を取得
+    let oldData = JSON.parse(localStorage.getItem('memory') || '[]');
+    // 種目別最大値を作る
+    const oldMaxByMenu = {};
+    oldData.forEach(item => {
+        const program = item.menu;
+        const max = Number(item.max);
+        if (!oldMaxByMenu[program] || max > oldMaxByMenu[program]) {
+            oldMaxByMenu[program] = max;
+        }
+    });
+
+    // 箱
+    const memories = [];
+    // テキストエリアから値を取得
     $('.textarea').each(function() {
         const menu = $(this).find('.menu').val();
 
@@ -96,6 +116,7 @@ $('#save').on('click',function(){
                 // RM表示も更新
                 $(this).find('.maxcal').text(max);
 
+
                 memories.push({
                     date: dateSelect,
                     menu,
@@ -103,66 +124,25 @@ $('#save').on('click',function(){
                     rep,
                     max
                 });
-            }
+                console.log(max);
+
+                const $RM1 = $(this).find('.RM1');
+
+                const oldMax = oldMaxByMenu[menu] || -Infinity;
+
+                if(max > oldMax){
+                    $RM1.text('New Record!');
+                    $RM1.css('color', 'red');
+                    oldMaxByMenu[menu] = max;// セットごとにデータを更新
+                } else {
+                    $RM1.text('RM換算値');
+                    $RM1.css('color', 'black');
+                };
+
+            };
+
         });
     });
-
-
-    // // ボタンクリックでセットを追加
-    // const set = '<div id="maintext"><div id="weight"><textarea class="weight"></textarea><p class="kg">kg</p></div><div id="rep"><textarea class="rep"></textarea><p class="count">回</p></div><p class="max">RM<span id="maxcal">0</span>kg</p></div>'
-    
-    // $('.addset').on('click', '.addset', function(){
-    //     $('.addset').before(set);
-    // });
-
-    // // ボタンクリックで種目を追加
-    // const form = '<div class="textarea"><div id="sbd"><select name="menu" class="menu"><option value="" disabled selected>選択してください</option><option value="sq">スクワット</option><option value="bp">ベンチプレス</option><option value="dl">デッドリフト</option></select></div><div id="maintext"><div id="weight"><textarea class="weight"></textarea><p class="kg">kg</p></div><div id="rep"><textarea class="rep"></textarea><p class="count">回</p></div><p class="max">RM<span id="maxcal">0</span>kg</p></div><div align="center" id="setbutton"><button class="addset">＋</button></div></div>'
-
-    // $('#addform').on('click',function(){
-    //     $('#addform').before(form);
-    // });
-
-    // 数値を保存する箱
-    // const dates =[];
-    // const menus =[];
-    // const weights =[];
-    // const reps =[];
-    // const rm =[];
-
-    // // セーブのクリックアクション
-    // $('#save').on('click',function(){
-    //     const y = $('#year').val();
-    //     const m = $('#month').val();
-    //     const d = $('#day').val();
-
-    //     const dateSelect = `${y}-${m}-${d}`;
-    //     const memory = {
-    //         date: dateSelect,
-    //         menu: $('.menu').val(),
-    //         weight: $('.weight').val(),
-    //         rep: $('.rep').val()
-    //     }
-    //     console.log(memory);
-
-
-
-        // const w = Number(memory.weight);
-        // const r = Number(memory.rep);
-
-        // // RM計算
-        // const max = (w)*(r)/40+(w)
-        // console.log(max);
-
-        // // RM表示
-        // $('#maxcal').html(max);
-
-        // // ログを追加
-        // dates.push(memory.date);
-        // menus.push(memory.menu);
-        // weights.push(memory.weight);
-        // reps.push(memory.rep);
-        // rm.push(max);
-
 
         // json
         const json = JSON.stringify(memories);
@@ -178,20 +158,12 @@ $('#save').on('click',function(){
         localStorage.removeItem("rm");
         alert("削除しました");
 
-        $('#menu').val('');
-        $('#weight').val('');
-        $('#rep').val('');
+        $('.menu').val('');
+        $('.weight').val('');
+        $('.rep').val('');
         $('#year').val('');
         $('#month').val('');
         $('#day').val('');
-
-
-        $('#menu2').val('');
-        $('#weight2').val('');
-        $('#rep2').val('');
-
-        $('#menu3').val('');
-        $('#weight3').val('');
-        $('#rep3').val('');
-
+        $('.RM1').text('RM換算値');        
+        $('.RM1').css('color', 'black');
     });
