@@ -131,7 +131,7 @@ $('#save').on('click',function(){
                 const oldMax = oldMaxByMenu[menu] || -Infinity;
 
                 if(max > oldMax){
-                    $RM1.text('New Record!');
+                    $RM1.text('PR');
                     $RM1.css('color', 'red');
                     oldMaxByMenu[menu] = max;// セットごとにデータを更新
                 } else {

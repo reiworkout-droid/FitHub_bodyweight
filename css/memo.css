@@ -1,14 +1,27 @@
 
-#header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #6600FF;
+@media(max-width:600px){
+    header {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        background-color: #E6E5E4;
+    }
+}
+
+@media(min-width:601px){
+    header {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 body {
     height: 100%;
     width: 100%;
+    background-color: #E6E5E4;
 }
 
 #form {
@@ -17,13 +30,15 @@ body {
 
 
 .textarea {
-    background-color: #CCCCFF;
+    background-color: #8e8eed;
     margin-bottom: 30px;
+    width: 100%;
 }
 
 #ymd {
     margin-bottom: 30px;
     margin-left: 30px;
+    font-size: 18px;
 }
 
 .SBD {
@@ -54,11 +69,21 @@ body {
     gap: 10px;
 }
 
-.weight {
-    width: 150px;
-    height: 25px;
+@media(max-width:600px){
+    .weight {
+        width: 100px;
+        height: 25px;
+        font-size: 16px;
+    }
 }
 
+@media(min-width:601px){
+    .weight {
+        width: 150px;
+        height: 25px;
+        font-size: 18px;
+    }
+}
 
 .rep-wrap {
     display: flex;
@@ -66,9 +91,20 @@ body {
     gap: 10px;
 }
 
-.rep {   
-    width: 150px;
-    height: 25px;
+@media(max-width:600px){
+    .rep {
+        width: 70px;
+        height: 25px;
+        font-size: 16px;
+    }
+}
+
+@media(min-width:601px){
+    .rep {   
+        width: 150px;
+        height: 25px;
+        font-size: 18px;
+    }
 }
 
 .RM {
@@ -81,17 +117,22 @@ body {
     margin-top: -5px;
 }
 
-#button {
-    margin: auto;
-}
-
 .setbutton {
     padding-bottom: 30px;
     text-align: center;
+    cursor: pointer;
+}
+
+.addset {
+    cursor: pointer;
 }
 
 .formbutton {
     text-align: center;
+}
+
+.addform {
+    cursor: pointer;
 }
 
 .save {
@@ -100,7 +141,13 @@ body {
     margin-top: 60px;
     margin-bottom: 120px;
     padding: 30px 30px;
-    background-color: #FFFF99;
+    list-style: none;
+    font-size: 20px;
+}
+
+#save:hover, #clear:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 footer {
@@ -109,14 +156,27 @@ bottom: 0;
 width: 100%;
 }
 
-#footer_ul {
-    display: flex;
-    justify-content: center;
-    gap: 10%;
-    list-style: none;
-    background-color: #CC99FF	;
-    margin-top: 30px;
-    padding: 30px;
-
+@media(min-width:601px){
+    #footer_ul {
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+        list-style: none;
+        background-color: #6495ed	;
+        margin-top: 30px;
+        padding: 30px;
+    }
 }
 
+@media(max-width:600px){
+    #footer_ul {
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+        font-size: 15px;
+        list-style: none;
+        background-color: #6495ed	;
+        margin-top: 30px;
+        padding: 30px;
+    }
+}
